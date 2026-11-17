@@ -1,0 +1,1643 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Viagens | Roteiros Sob Medida & Experiências Exclusivas</title>
+    <!-- Carregamento do Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tipografia Inter e Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        amber: {
+                            450: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ajustes refinados de scrollbar e animações suaves */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- ================= CABEÇALHO FIXO ================= -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-slate-200/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logotipo Vetorial -->
+                <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-700 to-brand-950 flex items-center justify-center shadow-md shadow-brand-900/15 group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" class="opacity-40"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            <path d="M17 7l-5 5-3-2" stroke="#38bdf8" stroke-width="2.2"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-extrabold text-xl tracking-tight text-slate-900 leading-none">
+                            Horizonte<span class="text-brand-600">.</span>
+                        </span>
+                        <span class="text-[11px] font-medium uppercase tracking-widest text-slate-500 mt-0.5">
+                            Viagens & Roteiros
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#destinos" class="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Destinos</a>
+                    <a href="#pacotes" class="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Pacotes</a>
+                    <a href="#simulador" class="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Orçamento</a>
+                    <a href="#perfil-viajante" class="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Preencher Roteiro</a>
+                    <a href="#diferenciais" class="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors">Diferenciais</a>
+                </nav>
+
+                <!-- Ação Rápida + Botão Mobile -->
+                <div class="flex items-center gap-3">
+                    <a href="#simulador" class="inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-800 text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow-sm transition-all hover:shadow-md active:scale-[0.99]">
+                        <svg class="w-4 h-4 text-sky-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="2" width="16" height="20" rx="2"/>
+                            <line x1="8" y1="6" x2="16" y2="6"/>
+                            <line x1="16" y1="14" x2="16" y2="18"/>
+                            <path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>
+                        </svg>
+                        <span>Simular Roteiro</span>
+                    </a>
+
+                    <button id="mobile-menu-btn" type="button" aria-label="Abrir menu" class="md:hidden p-2.5 rounded-xl text-slate-600 hover:bg-slate-100 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Expansível -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-5 space-y-2">
+            <a href="#destinos" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700">Destinos</a>
+            <a href="#pacotes" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700">Pacotes</a>
+            <a href="#simulador" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700">Orçamento</a>
+            <a href="#perfil-viajante" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700">Preencher Roteiro</a>
+            <a href="#diferenciais" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-700">Diferenciais</a>
+        </div>
+    </header>
+
+    <!-- ================= SEÇÃO HERO ================= -->
+    <section id="inicio" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-slate-950 via-brand-950 to-slate-900 text-white">
+        <!-- Padrão Geométrico de Fundo SVG -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid-pattern" width="48" height="48" patternUnits="userSpaceOnUse">
+                        <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)"/>
+            </svg>
+        </div>
+
+        <!-- Brilhos Sutis de Gradiente -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-10 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Coluna de Texto e Filtro Rápido -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-sky-300 text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Curadoria Brasil & Destinos Internacionais
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.12]">
+                        Explore o Brasil e o mundo com roteiros <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-200 to-amber-200">desenhados para você.</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl leading-relaxed font-normal">
+                        De paraísos litorâneos nacionais a expedições culturais e refúgios na natureza. Planejamos cada detalhe com precisão e experiências autênticas.
+                    </p>
+
+                    <!-- Barra de Filtro Interativo Hero -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/15 p-3 sm:p-4 rounded-2xl shadow-2xl">
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                            <div class="flex-1">
+                                <label for="hero-style-select" class="block text-[11px] uppercase tracking-wider text-sky-200 font-semibold mb-1 px-1">
+                                    Estilo de Experiência
+                                </label>
+                                <select id="hero-style-select" class="w-full bg-slate-900/90 text-white border border-white/20 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sky-400">
+                                    <option value="todos">Todos os Estilos de Viagem</option>
+                                    <option value="Praia">Praia & Ilhas Paradisíacas</option>
+                                    <option value="Cultura">Cultura, História & Gastronomia</option>
+                                    <option value="Aventura">Aventura & Natureza Exuberante</option>
+                                    <option value="Luxo">Luxo & Exclusividade</option>
+                                </select>
+                            </div>
+
+                            <div class="flex-1">
+                                <label for="hero-continent-select" class="block text-[11px] uppercase tracking-wider text-sky-200 font-semibold mb-1 px-1">
+                                    Região / Destino
+                                </label>
+                                <select id="hero-continent-select" class="w-full bg-slate-900/90 text-white border border-white/20 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sky-400">
+                                    <option value="todos">Todas as Regiões</option>
+                                    <option value="Brasil" selected>Brasil (Destaques Nacionais)</option>
+                                    <option value="América do Sul">América do Sul</option>
+                                    <option value="Europa">Europa</option>
+                                    <option value="Ásia & Oriente">Ásia & Oriente</option>
+                                </select>
+                            </div>
+
+                            <div class="sm:self-end">
+                                <button id="hero-search-btn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg shadow-sky-500/25 cursor-pointer">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                                    </svg>
+                                    <span>Explorar Pacotes</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ilustração Vetorial Estilizada (Sem fotos pesadas) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md animate-float">
+                        <svg viewBox="0 0 460 440" class="w-full h-auto drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0284c7"/>
+                                    <stop offset="50%" stop-color="#1e3a8a"/>
+                                    <stop offset="100%" stop-color="#0f172a"/>
+                                </linearGradient>
+                                <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#fde047"/>
+                                    <stop offset="100%" stop-color="#f97316"/>
+                                </linearGradient>
+                                <linearGradient id="seaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#06b6d4"/>
+                                    <stop offset="100%" stop-color="#2563eb"/>
+                                </linearGradient>
+                                <clipPath id="globeClip">
+                                    <rect x="30" y="20" width="400" height="400" rx="48"/>
+                                </clipPath>
+                            </defs>
+
+                            <!-- Moldura Principal -->
+                            <rect x="30" y="20" width="400" height="400" rx="48" fill="url(#skyGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+
+                            <g clip-path="url(#globeClip)">
+                                <!-- Sol Estilizado -->
+                                <circle cx="315" cy="120" r="54" fill="url(#sunGrad)" opacity="0.95"/>
+                                <circle cx="315" cy="120" r="72" fill="url(#sunGrad)" opacity="0.2"/>
+
+                                <!-- Nuvens Minimalistas -->
+                                <path d="M75 115 h65 a14 14 0 0 0 0-28 a20 20 0 0 0-38-6 a16 16 0 0 0-27 34 z" fill="rgba(255,255,255,0.16)"/>
+                                <path d="M235 170 h50 a10 10 0 0 0 0-20 a15 15 0 0 0-28-4 a12 12 0 0 0-22 24 z" fill="rgba(255,255,255,0.12)"/>
+
+                                <!-- Cordilheira / Montanhas -->
+                                <polygon points="20,285 135,155 245,285" fill="#1e293b"/>
+                                <polygon points="135,155 168,195 145,205 135,190 120,202" fill="#e2e8f0" opacity="0.85"/>
+                                <polygon points="165,285 280,175 410,285" fill="#0f172a"/>
+                                <polygon points="280,175 305,202 286,210 275,198 264,208" fill="#cbd5e1" opacity="0.75"/>
+
+                                <!-- Oceano e Ondas -->
+                                <rect x="30" y="280" width="400" height="140" fill="url(#seaGrad)"/>
+                                <path d="M30 305 Q 130 290, 230 305 T 430 305" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3"/>
+                                <path d="M30 335 Q 130 320, 230 335 T 430 335" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
+                                <path d="M30 365 Q 130 350, 230 365 T 430 365" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+
+                                <!-- Trajetória de Voo Tracejada -->
+                                <path d="M85 235 C 140 120, 260 95, 355 82" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="7 7"/>
+                                <!-- Ícone Avião Vetorial -->
+                                <g transform="translate(345, 68) rotate(12)">
+                                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="#ffffff"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DESTAQUES DE REGIAO / DESTINOS ================= -->
+    <section id="destinos" class="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Mapa de Experiências</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 mt-2">
+                        Destinos em Alta na Temporada
+                    </h2>
+                </div>
+                <p class="text-slate-600 max-w-md text-sm sm:text-base">
+                    Clique em uma categoria abaixo para filtrar instantaneamente os pacotes disponíveis em nosso catálogo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card Categoria 1 -->
+                <button type="button" data-quick-filter="Praia" class="quick-cat-card text-left group p-6 rounded-2xl bg-gradient-to-br from-sky-50 to-cyan-50/70 border border-sky-100 hover:border-sky-300 hover:shadow-lg transition-all cursor-pointer">
+                    <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                            <path d="M22 10a3 3 0 0 0-3-3h-2.207a5.502 5.502 0 0 0-10.702.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Praia & Ilhas</h3>
+                    <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">Águas cristalinas, recifes de corais e resorts pé na areia.</p>
+                    <span class="inline-flex items-center gap-1 text-xs font-bold text-sky-700 mt-4 group-hover:translate-x-1 transition-transform">
+                        Ver pacotes de Praia &rarr;
+                    </span>
+                </button>
+
+                <!-- Card Categoria 2 -->
+                <button type="button" data-quick-filter="Cultura" class="quick-cat-card text-left group p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50/60 border border-amber-100 hover:border-amber-300 hover:shadow-lg transition-all cursor-pointer">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/>
+                            <path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Cultura & História</h3>
+                    <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">Cidades milenares, arquitetura icônica e alta gastronomia local.</p>
+                    <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-700 mt-4 group-hover:translate-x-1 transition-transform">
+                        Ver pacotes Culturais &rarr;
+                    </span>
+                </button>
+
+                <!-- Card Categoria 3 -->
+                <button type="button" data-quick-filter="Aventura" class="quick-cat-card text-left group p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50/70 border border-emerald-100 hover:border-emerald-300 hover:shadow-lg transition-all cursor-pointer">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Aventura & Natureza</h3>
+                    <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">Trilhas guiadas, geleiras patagônicas e expedições ecológicas.</p>
+                    <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 mt-4 group-hover:translate-x-1 transition-transform">
+                        Ver pacotes de Aventura &rarr;
+                    </span>
+                </button>
+
+                <!-- Card Categoria 4 -->
+                <button type="button" data-quick-filter="Luxo" class="quick-cat-card text-left group p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-slate-100 border border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all cursor-pointer">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-900 text-white flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Luxo & Exclusividade</h3>
+                    <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">Hotéis boutique 5 estrelas, traslados privativos e serviços VIP.</p>
+                    <span class="inline-flex items-center gap-1 text-xs font-bold text-indigo-800 mt-4 group-hover:translate-x-1 transition-transform">
+                        Ver pacotes de Luxo &rarr;
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CATÁLOGO DE PACOTES COM FILTROS E MODAL ================= -->
+    <section id="pacotes" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Catálogo Completo</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 mt-2">
+                    Pacotes & Roteiros Selecionados
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Compare durações, itens inclusos e valores por pessoa. Abra qualquer pacote para visualizar o cronograma detalhado dia a dia.
+                </p>
+            </div>
+
+            <!-- Barra de Controles de Filtro -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm mb-8 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+                <!-- Botões de Estilo -->
+                <div class="flex flex-wrap items-center gap-2" id="style-filter-buttons">
+                    <button type="button" data-style="todos" class="filter-pill active px-4 py-2 rounded-xl text-sm font-semibold bg-brand-900 text-white transition-all cursor-pointer">
+                        Todos
+                    </button>
+                    <button type="button" data-style="Praia" class="filter-pill px-4 py-2 rounded-xl text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
+                        Praia
+                    </button>
+                    <button type="button" data-style="Cultura" class="filter-pill px-4 py-2 rounded-xl text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
+                        Cultura
+                    </button>
+                    <button type="button" data-style="Aventura" class="filter-pill px-4 py-2 rounded-xl text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
+                        Aventura
+                    </button>
+                    <button type="button" data-style="Luxo" class="filter-pill px-4 py-2 rounded-xl text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">
+                        Luxo
+                    </button>
+                </div>
+
+                <!-- Filtro de Continente e Ordenação -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <select id="catalog-continent-filter" class="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <option value="todos">Região: Todas</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="América do Sul">América do Sul</option>
+                        <option value="Europa">Europa</option>
+                        <option value="Ásia & Oriente">Ásia & Oriente</option>
+                    </select>
+
+                    <select id="catalog-sort" class="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <option value="destaque">Ordenar: Recomendados</option>
+                        <option value="menor-preco">Menor Preço (R$)</option>
+                        <option value="maior-preco">Maior Preço (R$)</option>
+                        <option value="duracao">Maior Duração</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Contador de Resultados -->
+            <div class="flex items-center justify-between mb-6 text-sm text-slate-500">
+                <span id="results-count">Exibindo 6 pacotes disponíveis</span>
+                <button id="reset-filters-btn" type="button" class="hidden text-brand-700 font-semibold hover:underline cursor-pointer">
+                    Limpar filtros aplicados
+                </button>
+            </div>
+
+            <!-- Grid de Cards de Pacotes -->
+            <div id="packages-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Preenchido dinamicamente via JavaScript -->
+            </div>
+
+            <!-- Estado Vazio caso nenhum filtro combine -->
+            <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                    </svg>
+                </div>
+                <h3 class="font-display font-bold text-xl text-slate-900">Nenhum pacote encontrado para essa combinação</h3>
+                <p class="text-slate-500 text-sm mt-1">Experimente alterar o estilo ou a região selecionada.</p>
+                <button id="empty-reset-btn" type="button" class="mt-5 px-5 py-2.5 bg-brand-900 text-white text-sm font-semibold rounded-xl hover:bg-brand-800 cursor-pointer">
+                    Mostrar Todos os Pacotes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SIMULADOR INTERATIVO DE ORÇAMENTO ================= -->
+    <section id="simulador" class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Planejamento Financeiro Instantâneo</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 mt-2">
+                    Simulador de Orçamento de Viagem
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Personalize o destino, número de viajantes, padrão de hospedagem e experiências adicionais para calcular o investimento estimado em tempo real.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Painel de Configuração (7 colunas) -->
+                <div class="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-7">
+                    <!-- 1. Escolha do Destino -->
+                    <div>
+                        <label for="sim-destination" class="block font-display font-bold text-base text-slate-900 mb-2">
+                            1. Selecione o Destino Base
+                        </label>
+                        <select id="sim-destination" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-brand-600">
+                            <!-- Populado via JS com os pacotes -->
+                        </select>
+                    </div>
+
+                    <!-- 2. Número de Viajantes -->
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="font-display font-bold text-base text-slate-900">
+                                2. Quantidade de Viajantes
+                            </label>
+                            <span id="sim-travelers-label" class="text-sm font-bold text-brand-700 bg-brand-50 px-3 py-1 rounded-lg border border-brand-200">
+                                2 Adultos
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white border border-slate-300 rounded-xl p-3">
+                            <button type="button" id="dec-travelers" class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-lg flex items-center justify-center transition-colors cursor-pointer">
+                                &minus;
+                            </button>
+                            <input type="range" id="sim-travelers" min="1" max="8" value="2" class="flex-1 accent-brand-700 cursor-pointer">
+                            <button type="button" id="inc-travelers" class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-lg flex items-center justify-center transition-colors cursor-pointer">
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Categoria de Hospedagem -->
+                    <div>
+                        <span class="block font-display font-bold text-base text-slate-900 mb-3">
+                            3. Categoria de Hospedagem
+                        </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="sim-hotel-options">
+                            <label class="hotel-radio-card cursor-pointer relative flex flex-col p-4 bg-white border-2 border-brand-600 rounded-2xl shadow-sm transition-all">
+                                <input type="radio" name="hotelTier" value="1.0" checked class="sr-only">
+                                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Conforto</span>
+                                <span class="font-display font-bold text-slate-900 mt-1">Hotel 4★</span>
+                                <span class="text-xs text-slate-500 mt-1">Café da manhã incluso</span>
+                            </label>
+
+                            <label class="hotel-radio-card cursor-pointer relative flex flex-col p-4 bg-white border-2 border-slate-200 hover:border-slate-300 rounded-2xl transition-all">
+                                <input type="radio" name="hotelTier" value="1.28" class="sr-only">
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Superior</span>
+                                <span class="font-display font-bold text-slate-900 mt-1">Boutique 5★</span>
+                                <span class="text-xs text-slate-500 mt-1">+28% • Localização nobre</span>
+                            </label>
+
+                            <label class="hotel-radio-card cursor-pointer relative flex flex-col p-4 bg-white border-2 border-slate-200 hover:border-slate-300 rounded-2xl transition-all">
+                                <input type="radio" name="hotelTier" value="1.60" class="sr-only">
+                                <span class="text-xs font-bold uppercase tracking-wider text-indigo-700">Signature</span>
+                                <span class="font-display font-bold text-slate-900 mt-1">Resort All-Inclusive</span>
+                                <span class="text-xs text-slate-500 mt-1">+60% • Experiência VIP</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 4. Experiências & Passeios Extras -->
+                    <div>
+                        <span class="block font-display font-bold text-base text-slate-900 mb-3">
+                            4. Experiências Extras (Opcional, por pessoa)
+                        </span>
+                        <div class="space-y-2.5">
+                            <label class="flex items-center justify-between p-3.5 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="sim-extra w-4 h-4 accent-brand-700 rounded" data-price="490" data-name="Passeios Privativos com Guia">
+                                    <div>
+                                        <span class="text-sm font-semibold text-slate-800 block">Tours Privativos com Guia Local</span>
+                                        <span class="text-xs text-slate-500">Roteiro cultural e gastronômico exclusivo</span>
+                                    </div>
+                                </div>
+                                <span class="text-sm font-bold text-slate-700">+ R$ 490</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3.5 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="sim-extra w-4 h-4 accent-brand-700 rounded" data-price="320" data-name="Traslado Executivo Aeroporto">
+                                    <div>
+                                        <span class="text-sm font-semibold text-slate-800 block">Traslado Executivo Privativo (Ida e Volta)</span>
+                                        <span class="text-xs text-slate-500">Recepção dedicada no desembarque</span>
+                                    </div>
+                                </div>
+                                <span class="text-sm font-bold text-slate-700">+ R$ 320</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-3.5 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 cursor-pointer">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="sim-extra w-4 h-4 accent-brand-700 rounded" data-price="650" data-name="Experiência Gastronômica & Passeio de Barco">
+                                    <div>
+                                        <span class="text-sm font-semibold text-slate-800 block">Expedição Panorâmica & Jantar Típico</span>
+                                        <span class="text-xs text-slate-500">Atividade premium selecionada no destino</span>
+                                    </div>
+                                </div>
+                                <span class="text-sm font-bold text-slate-700">+ R$ 650</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo Financeiro Dinâmico (5 colunas) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl sticky top-24">
+                    <div class="flex items-center justify-between pb-5 border-b border-white/15">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-sky-300 font-bold">Resumo Estimado</span>
+                            <h3 id="summary-dest-name" class="font-display font-bold text-2xl mt-1">Fernando de Noronha</h3>
+                        </div>
+                        <span id="summary-duration" class="px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-sky-200">
+                            6 Dias / 5 Noites
+                        </span>
+                    </div>
+
+                    <div class="py-6 space-y-3.5 text-sm border-b border-white/15">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Pacote base (<span id="summary-travelers-count">2</span> viajantes)</span>
+                            <span id="summary-base-total" class="font-semibold text-white">R$ 9.780</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Ajuste de hospedagem (<span id="summary-hotel-label">Hotel 4★</span>)</span>
+                            <span id="summary-hotel-diff" class="font-semibold text-sky-300">Incluso</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Experiências adicionais</span>
+                            <span id="summary-extras-total" class="font-semibold text-amber-300">R$ 0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400 text-xs pt-2">
+                            <span>Seguro viagem internacional/nacional</span>
+                            <span class="text-emerald-400 font-semibold">Cortesia Inclusa</span>
+                        </div>
+                    </div>
+
+                    <div class="py-6">
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-slate-300 text-sm">Investimento Total Estimado</span>
+                            <span id="summary-grand-total" class="font-display font-extrabold text-3xl sm:text-4xl text-white">
+                                R$ 9.780
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2 text-xs text-slate-400">
+                            <span>Valor médio por viajante: <strong id="summary-per-person" class="text-slate-200">R$ 4.890</strong></span>
+                            <span>Em até 10x sem juros</span>
+                        </div>
+                    </div>
+
+                    <!-- Botão para copiar resumo do roteiro simulado -->
+                    <button type="button" id="copy-quote-btn" class="w-full py-3.5 px-5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-sky-500/20 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                        <span id="copy-quote-text">Copiar Resumo da Simulação</span>
+                    </button>
+                    <p class="text-[11px] text-slate-400 text-center mt-3">
+                        Valores calculados com taxas aeroportuárias e seguro base inclusos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FORMULÁRIO INTERATIVO DE PREENCHIMENTO DO ROTEIRO ================= -->
+    <section id="perfil-viajante" class="py-20 bg-slate-100/80 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Personalização de Viagem</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 mt-2">
+                    Preencha os Dados do seu Roteiro
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Informe suas preferências de embarque, datas desejadas e perfil da viagem para gerar instantaneamente o seu cartão de roteiro personalizado.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Formulário de Preenchimento (7 colunas) -->
+                <form id="traveler-profile-form" class="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <!-- Nome do Viajante Principal -->
+                        <div>
+                            <label for="traveler-name" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                                Nome do Viajante Principal *
+                            </label>
+                            <input type="text" id="traveler-name" required placeholder="Ex: Mariana Costa" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-600">
+                        </div>
+
+                        <!-- Cidade de Embarque -->
+                        <div>
+                            <label for="departure-city" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                                Cidade / Aeroporto de Origem *
+                            </label>
+                            <input type="text" id="departure-city" required placeholder="Ex: São Paulo (GRU)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-600">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <!-- Destino Escolhido -->
+                        <div>
+                            <label for="form-destination" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                                Destino Desejado *
+                            </label>
+                            <select id="form-destination" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-600">
+                                <!-- Populado via JS -->
+                            </select>
+                        </div>
+
+                        <!-- Data Prevista de Ida -->
+                        <div>
+                            <label for="departure-date" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                                Data Prevista de Ida *
+                            </label>
+                            <input type="date" id="departure-date" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-600">
+                        </div>
+
+                        <!-- Quantidade de Pessoas -->
+                        <div>
+                            <label for="form-passengers" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                                Passageiros *
+                            </label>
+                            <select id="form-passengers" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-3 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-600">
+                                <option value="1 Passageiro (Solo)">1 Passageiro (Solo)</option>
+                                <option value="2 Passageiros (Casal / Dupla)" selected>2 Passageiros (Casal / Dupla)</option>
+                                <option value="3 Passageiros">3 Passageiros</option>
+                                <option value="4 Passageiros (Família)">4 Passageiros (Família)</option>
+                                <option value="5+ Passageiros (Grupo)">5+ Passageiros (Grupo)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Preferências Rápidas -->
+                    <div>
+                        <span class="block text-sm font-semibold text-slate-800 mb-2.5">
+                            Preferências da Experiência
+                        </span>
+                        <div class="flex flex-wrap gap-2.5">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="pref-tag sr-only" value="Voos Diretos" checked>
+                                <span class="inline-block px-3.5 py-2 rounded-xl text-xs font-semibold border border-brand-600 bg-brand-50 text-brand-800 transition-all">
+                                    Voos Diretos
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="pref-tag sr-only" value="Café da Manhã Incluso" checked>
+                                <span class="inline-block px-3.5 py-2 rounded-xl text-xs font-semibold border border-brand-600 bg-brand-50 text-brand-800 transition-all">
+                                    Café da Manhã Incluso
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="pref-tag sr-only" value="Passeios Privativos">
+                                <span class="inline-block px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white text-slate-600 transition-all">
+                                    Passeios Privativos
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="pref-tag sr-only" value="Roteiro Gastronômico">
+                                <span class="inline-block px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white text-slate-600 transition-all">
+                                    Roteiro Gastronômico
+                                </span>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" class="pref-tag sr-only" value="Datas Flexíveis">
+                                <span class="inline-block px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-300 bg-white text-slate-600 transition-all">
+                                    Datas Flexíveis
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Observações do Roteiro -->
+                    <div>
+                        <label for="travel-notes" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                            Observações ou Pedidos Especiais (Opcional)
+                        </label>
+                        <textarea id="travel-notes" rows="3" placeholder="Ex: Viagem de aniversário, preferência por quartos com vista para o mar, ritmo mais tranquilo..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
+                    </div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span class="text-xs text-slate-500">
+                            Seus dados geram uma ficha instantânea para salvar ou imprimir.
+                        </span>
+                        <button type="submit" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm shadow-md transition-all cursor-pointer">
+                            Gerar Ficha do Roteiro
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Cartão de Pré-visualização em Tempo Real / Ficha Gerada (5 colunas) -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white border-2 border-dashed border-slate-300 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-3 h-3 rounded-full bg-sky-500"></span>
+                                <span class="text-xs font-extrabold uppercase tracking-widest text-slate-500">
+                                    Cartão de Embarque & Roteiro
+                                </span>
+                            </div>
+                            <span id="ticket-status-badge" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">
+                                Em Preenchimento
+                            </span>
+                        </div>
+
+                        <div class="py-6 space-y-5">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Viajante Titular</span>
+                                <p id="preview-name" class="font-display font-bold text-xl text-slate-900 mt-0.5">Seu Nome Aqui</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                <div>
+                                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Origem</span>
+                                    <p id="preview-origin" class="font-semibold text-sm text-slate-800 mt-0.5">A definir</p>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Destino</span>
+                                    <p id="preview-dest" class="font-bold text-sm text-brand-700 mt-0.5">Fernando de Noronha</p>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Data Prevista</span>
+                                    <p id="preview-date" class="font-semibold text-sm text-slate-800 mt-0.5">A escolher</p>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Grupo</span>
+                                    <p id="preview-pax" class="font-semibold text-sm text-slate-800 mt-0.5">2 Passageiros</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block mb-2">Preferências Selecionadas</span>
+                                <div id="preview-tags" class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">Voos Diretos</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">Café da Manhã Incluso</span>
+                                </div>
+                            </div>
+
+                            <div id="preview-notes-box" class="hidden bg-brand-50/60 border border-brand-100 rounded-xl p-3.5">
+                                <span class="text-[11px] uppercase tracking-wider text-brand-700 font-bold block">Observações</span>
+                                <p id="preview-notes" class="text-xs text-slate-700 mt-1 leading-relaxed"></p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
+                            <button type="button" id="copy-ticket-btn" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                                <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                </svg>
+                                <span>Copiar Ficha Preenchida</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DIFERENCIAIS DA AGÊNCIA ================= -->
+    <section id="diferenciais" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Excelência Operacional</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 mt-2">
+                    Por que viajar com a Horizonte?
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Cuidamos de cada detalhe técnico e logístico para que sua única preocupação seja aproveitar cada momento do destino.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Diferencial 1 -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Planejamento Sob Medida</h3>
+                    <p class="text-sm text-slate-600 mt-2.5 leading-relaxed">
+                        Roteiros estruturados de acordo com seu ritmo de viagem, otimizando conexões aéreas, deslocamentos e tempo livre.
+                    </p>
+                </div>
+
+                <!-- Diferencial 2 -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Seguro Viagem Completo</h3>
+                    <p class="text-sm text-slate-600 mt-2.5 leading-relaxed">
+                        Cobertura médica hospitalar, proteção de bagagem e assistência emergencial já integradas em todos os pacotes.
+                    </p>
+                </div>
+
+                <!-- Diferencial 3 -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/>
+                            <path d="M1 21h22"/>
+                            <path d="M9 7h1"/><path d="M9 11h1"/><path d="M9 15h1"/>
+                            <path d="M14 7h1"/><path d="M14 11h1"/><path d="M14 15h1"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Curadoria de Hospedagens</h3>
+                    <p class="text-sm text-slate-600 mt-2.5 leading-relaxed">
+                        Hotéis e resorts auditados com rigor quanto à localização estratégica, conforto acústico e padrão de serviço.
+                    </p>
+                </div>
+
+                <!-- Diferencial 4 -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-700 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900">Suporte 24h em Viagem</h3>
+                    <p class="text-sm text-slate-600 mt-2.5 leading-relaxed">
+                        Monitoramento ativo de voos, check-ins antecipados e equipe dedicada para reacomodações imediatas durante todo o trajeto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= RODAPÉ MINIMALISTA (SEM CONTATO OU ENDEREÇO) ================= -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-slate-800/80">
+                <!-- Logotipo e Frase Institucional -->
+                <div class="max-w-md">
+                    <a href="#inicio" class="inline-flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-600 to-brand-900 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" class="opacity-40"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <span class="font-display font-extrabold text-xl text-white">
+                            Horizonte<span class="text-sky-400">.</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Curadoria especializada em roteiros nacionais e internacionais com planejamento inteligente, transparência e experiências inesquecíveis.
+                    </p>
+                </div>
+
+                <!-- Links de Navegação Interna -->
+                <nav class="flex flex-wrap gap-6 text-sm font-medium">
+                    <a href="#inicio" class="hover:text-white transition-colors">Início</a>
+                    <a href="#destinos" class="hover:text-white transition-colors">Destinos</a>
+                    <a href="#pacotes" class="hover:text-white transition-colors">Pacotes</a>
+                    <a href="#simulador" class="hover:text-white transition-colors">Orçamento</a>
+                    <a href="#perfil-viajante" class="hover:text-white transition-colors">Preencher Roteiro</a>
+                    <a href="#diferenciais" class="hover:text-white transition-colors">Diferenciais</a>
+                </nav>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 Horizonte Viagens & Turismo. Todos os direitos reservados.</p>
+                <p>Planejamento de viagens com curadoria independente.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL DE DETALHES DO ROTEIRO DIA A DIA ================= -->
+    <div id="itinerary-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+            <!-- Topo do Modal -->
+            <div id="modal-header-banner" class="p-6 sm:p-7 bg-gradient-to-r from-brand-900 to-slate-900 text-white flex items-start justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span id="modal-badge-style" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/15 text-sky-200">
+                            Praia
+                        </span>
+                        <span id="modal-badge-region" class="text-xs text-slate-300 font-medium">
+                            Brasil
+                        </span>
+                    </div>
+                    <h3 id="modal-title" class="font-display font-extrabold text-2xl sm:text-3xl">
+                        Título do Destino
+                    </h3>
+                    <p id="modal-subtitle" class="text-sm text-slate-300 mt-1">
+                        6 Dias / 5 Noites • Aéreo + Hospedagem + Passeios
+                    </p>
+                </div>
+
+                <button id="close-modal-btn" type="button" aria-label="Fechar detalhes" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo Rolável do Roteiro -->
+            <div class="p-6 sm:p-7 overflow-y-auto space-y-6">
+                <!-- Itens Inclusos -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">O que está incluso neste pacote</h4>
+                    <div id="modal-inclusions" class="flex flex-wrap gap-2">
+                        <!-- Badges gerados via JS -->
+                    </div>
+                </div>
+
+                <!-- Cronograma Dia a Dia -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Roteiro Sugerido Dia a Dia</h4>
+                    <div id="modal-days-list" class="space-y-4 border-l-2 border-brand-200 ml-2 pl-5">
+                        <!-- Dias gerados via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé do Modal -->
+            <div class="p-5 sm:px-7 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs text-slate-500 block">Valor por pessoa a partir de</span>
+                    <span id="modal-price" class="font-display font-extrabold text-2xl text-slate-900">R$ 4.890</span>
+                </div>
+                <button id="modal-simulate-btn" type="button" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm transition-colors cursor-pointer">
+                    Simular este Destino no Orçamento &rarr;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Feedback (Substitui qualquer alert) -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-3 text-sm font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span id="toast-message">Resumo copiado com sucesso!</span>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT INTERATIVO ================= -->
+    <script>
+        // Base de dados estruturada dos pacotes de viagem (com foco reforçado em roteiros pelo Brasil)
+        const travelPackages = [
+            {
+                id: 'noronha',
+                title: 'Fernando de Noronha',
+                region: 'Brasil',
+                style: 'Praia',
+                days: 6,
+                durationText: '6 Dias / 5 Noites',
+                level: 'Conforto & Natureza',
+                price: 4890,
+                gradient: 'from-sky-600 via-cyan-600 to-teal-700',
+                summary: 'Mergulho livre na Baía do Sancho, trilhas ecológicas e pousada charmosa com café regional.',
+                inclusions: ['Passagem Aérea Ida/Volta', '5 Noites em Pousada Selecionada', 'Ilha Tour Completo', 'Seguro Viagem Nacional'],
+                itinerary: [
+                    { day: 'Dia 1', title: 'Chegada e Pôr do Sol no Mirante do Boldró', desc: 'Recepção no aeroporto, acomodação na pousada e caminhada leve para apreciar o entardecer.' },
+                    { day: 'Dia 2', title: 'Ilha Tour Panorâmico', desc: 'Visita às praias do Leão, Cacimba do Padre, Baía dos Porcos e parada para banho na Baía do Sancho.' },
+                    { day: 'Dia 3', title: 'Passeio de Barco e Observação de Golfinhos', desc: 'Navegação matinal pela costa norte com parada para mergulho de superfície.' },
+                    { day: 'Dia 4', title: 'Trilha Histórica e Vila dos Remédios', desc: 'Exploração cultural pelo centro histórico e tarde livre na Praia da Conceição.' },
+                    { day: 'Dia 5', title: 'Dia Livre para Mergulho ou Canoagem', desc: 'Dia dedicado a atividades opcionais ou relaxamento à beira-mar.' },
+                    { day: 'Dia 6', title: 'Despedida e Retorno', desc: 'Café da manhã, check-out e traslado para o voo de retorno.' }
+                ]
+            },
+            {
+                id: 'jalapao',
+                title: 'Expedição Jalapão',
+                region: 'Brasil',
+                style: 'Aventura',
+                days: 5,
+                durationText: '5 Dias / 4 Noites',
+                level: 'Aventura & Fervedouros',
+                price: 3690,
+                gradient: 'from-emerald-600 via-teal-700 to-cyan-900',
+                summary: 'Mergulhos nos fervedouros cristalinos, dunas douradas de areia fina e cachoeiras exuberantes no Tocantins.',
+                inclusions: ['Aéreo até Palmas', 'Traslado 4x4 Especializado', '4 Noites de Hospedagem', 'Passeios aos Fervedouros e Dunas', 'Pensão Completa'],
+                itinerary: [
+                    { day: 'Dia 1', title: 'Saída de Palmas rumo a Ponte Alta', desc: 'Parada na Cachoeira da Velha e Prainha do Rio Novo.' },
+                    { day: 'Dia 2', title: 'Fervedouros e Comunidade Mumbuca', desc: 'Banho nos fervedouros Bela Vista e Buritizinho; visita ao artesanato em capim dourado.' },
+                    { day: 'Dia 3', title: 'Cachoeira da Formiga e Dunas', desc: 'Banho na cachoeira de águas esverdeadas e pôr do sol inesquecível nas Dunas do Jalapão.' },
+                    { day: 'Dia 4', title: 'Nascer do Sol no Morro da Catedral', desc: 'Subida opcional e visita ao Fervedouro Encontro das Águas.' },
+                    { day: 'Dia 5', title: 'Retorno a Palmas', desc: 'Chegada na capital no fim da tarde e traslado para o aeroporto.' }
+                ]
+            },
+            {
+                id: 'gramado',
+                title: 'Serra Gaúcha: Gramado & Canela',
+                region: 'Brasil',
+                style: 'Luxo',
+                days: 5,
+                durationText: '5 Dias / 4 Noites',
+                level: 'Charme & Gastronomia',
+                price: 3450,
+                gradient: 'from-amber-700 via-orange-800 to-stone-900',
+                summary: 'Arquitetura alpina, fondue tradicional, fábricas de chocolate artesanal e parques temáticos na Serra Gaúcha.',
+                inclusions: ['Aéreo Porto Alegre/Caxias', '4 Noites em Hotel Boutique', 'Tour Vinícolas no Vale dos Vinhedos', 'Translados Executivos'],
+                itinerary: [
+                    { day: 'Dia 1', title: 'Chegada e Caminhada na Rua Coberta', desc: 'Check-in e primeira imersão na charmosa arquitetura europeia de Gramado.' },
+                    { day: 'Dia 2', title: 'Vale dos Vinhedos em Bento Gonçalves', desc: 'Passeio de Maria Fumaça e degustação em vinícolas premiadas.' },
+                    { day: 'Dia 3', title: 'Parques de Canela e Cascata do Caracol', desc: 'Visita ao Parque do Caracol e mirantes de vidro com vista panorâmica.' },
+                    { day: 'Dia 4', title: 'Experiência Gastronômica e Chocolates', desc: 'Dia livre para compras, museus de carros clássicos e jantar de fondue.' },
+                    { day: 'Dia 5', title: 'Despedida e Retorno', desc: 'Café da manhã colonial, check-out e traslado ao aeroporto.' }
+                ]
+            },
+            {
+                id: 'trancoso',
+                title: 'Trancoso & Arraial d\'Ajuda',
+                region: 'Brasil',
+                style: 'Praia',
+                days: 6,
+                durationText: '6 Dias / 5 Noites',
+                level: 'Praia & Sofisticação',
+                price: 4290,
+                gradient: 'from-cyan-600 via-teal-600 to-amber-700',
+                summary: 'O rústico-chique do Quadrado histórico, falésias coloridas e praias paradisíacas no sul da Bahia.',
+                inclusions: ['Aéreo Porto Seguro', '5 Noites em Pousada Charmosa', 'Passeio às Praias de Espelho', 'Seguro Viagem Nacional'],
+                itinerary: [
+                    { day: 'Dia 1', title: 'Chegada e Pôr do Sol no Quadrado', desc: 'Recepção no aeroporto e caminhada pelas casinhas coloridas do Quadrado de Trancoso.' },
+                    { day: 'Dia 2', title: 'Praia dos Coqueiros e Nativos', desc: 'Dia dedicado a relaxar nas barragens sombreadas por coqueirais.' },
+                    { day: 'Dia 3', title: 'Excursão à Praia do Espelho', desc: 'Visita a uma das praias mais bonitas do Brasil, famosa por suas piscinas naturais.' },
+                    { day: 'Dia 4', title: 'Travessia para Arraial d\'Ajuda', desc: 'Passeio pela Rua Broadway e mirante da Igreja de Nossa Senhora d\'Ajuda.' },
+                    { day: 'Dia 5', title: 'Dia Livre para Descanso', desc: 'Desfrute da infraestrutura da pousada ou praias reservadas.' },
+                    { day: 'Dia 6', title: 'Retorno', desc: 'Café da manhã e traslado de regresso.' }
+                ]
+            },
+            {
+                id: 'patagonia',
+                title: 'Patagônia Chilena & Torres del Paine',
+                region: 'América do Sul',
+                style: 'Aventura',
+                days: 7,
+                durationText: '7 Dias / 6 Noites',
+                level: 'Expedição Guiada',
+                price: 7450,
+                gradient: 'from-emerald-700 via-teal-800 to-slate-900',
+                summary: 'Geleiras milenares, lagos azul-turquesa e caminhadas pelos cenários mais icônicos dos Andes.',
+                inclusions: ['Aéreo Internacional', '6 Noites com Café da Manhã', 'Expedição Torres del Paine', 'Navegação Glaciar Grey', 'Seguro Internacional'],
+                itinerary: [
+                    { day: 'Dia 1', title: 'Chegada em Puerto Natales', desc: 'Traslado panorâmico até o hotel às margens do fiorde Última Esperanza.' },
+                    { day: 'Dia 2', title: 'Parque Nacional Torres del Paine', desc: 'Dia inteiro explorando mirantes, Lago Nordenskjöld e Salto Grande.' },
+                    { day: 'Dia 3', title: 'Navegação ao Glaciar Grey', desc: 'Travessia de catamarã entre icebergs flutuantes até a parede de gelo milenar.' },
+                    { day: 'Dia 4', title: 'Trilha Base das Torres (Opcional) ou Vale Francês', desc: 'Caminhada acompanhada por guias especializados em montanha.' },
+                    { day: 'Dia 5', title: 'Estância Patagônica & Cultura Local', desc: 'Imersão na cultura gaúcha austral com almoço típico incluído.' },
+                    { day: 'Dia 6', title: 'Dia Livre em Puerto Natales', desc: 'Tempo livre para caminhar pela orla e explorar a gastronomia local.' },
+                    { day: 'Dia 7', title: 'Retorno ao Brasil', desc: 'Traslado ao aeroporto e embarque.' }
+                ]
+            },
+            {
+                id: 'toscana',
+                title: 'Rota Clássica: Roma & Toscana',
+                region: 'Europa',
+                style: 'Cultura',
+                days: 9,
+                durationText: '9 Dias / 8 Noites',
+                level: 'Cultural & Gastronômico',
+                price: 11290,
+                gradient: 'from-amber-600 via-orange-700 to-rose-900',
+                summary: 'Arte renascentista em Florença, monumentos históricos em Roma e degustação de vinhos em Chianti.',
+                inclusions: ['Aéreo + Trem Alta Velocidade', '8 Noites em Hotéis 4★ Centrais', 'Tour Coliseu e Vaticano', 'Degustação em Vinícola Toscana', 'Seguro Schengen'],
+                itinerary: [
+                    { day: 'Dia 1-3', title: 'Roma Eterna', desc: 'Visita guiada ao Coliseu, Fórum Romano, Fontana di Trevi e Museus do Vaticano.' },
+                    { day: 'Dia 4', title: 'Trem para Florença', desc: 'Deslocamento rápido de trem e passeio pelo centro histórico e Ponte Vecchio.' },
+                    { day: 'Dia 5', title: 'Galeria Uffizi & Duomo', desc: 'Imersão na arte renascentista com ingressos prioritários.' },
+                    { day: 'Dia 6', title: 'Colinas de Chianti e Siena', desc: 'Excursão pelas vilas medievais da Toscana com almoço harmonizado.' },
+                    { day: 'Dia 7-8', title: 'San Gimignano e Dia Livre', desc: 'Exploração das torres medievais e tempo livre para compras e gastronomia.' },
+                    { day: 'Dia 9', title: 'Voo de Regresso', desc: 'Traslado privativo para o aeroporto e retorno.' }
+                ]
+            },
+            {
+                id: 'maldivas',
+                title: 'Ilhas Maldivas Overwater',
+                region: 'Ásia & Oriente',
+                style: 'Luxo',
+                days: 8,
+                durationText: '8 Dias / 7 Noites',
+                level: 'Exclusividade 5★',
+                price: 18900,
+                gradient: 'from-indigo-800 via-blue-900 to-cyan-800',
+                summary: 'Bangalô sobre as águas cristalinas, traslado de hidroavião e regime meia-pensão em resort privativo.',
+                inclusions: ['Aéreo Executivo/Internacional', 'Traslado de Hidroavião', '6 Noites em Bangalô Overwater', 'Meia-Pensão Gourmet', 'Seguro Premium'],
+                itinerary: [
+                    { day: 'Dia 1-2', title: 'Chegada a Malé e Voo de Hidroavião', desc: 'Sobrevoo panorâmico pelos atóis e check-in no bangalô sobre o mar.' },
+                    { day: 'Dia 3', title: 'Snorkeling nos Recifes de Coral', desc: 'Saída guiada para observar tartarugas marinhas e arraias.' },
+                    { day: 'Dia 4', title: 'Cruzeiro Privativo ao Pôr do Sol', desc: 'Navegação em dhoni tradicional com serviço de bordo.' },
+                    { day: 'Dia 5-6', title: 'Bem-Estar e Gastronomia Subaquática', desc: 'Dias livres para aproveitar o spa sobre as águas e praias privativas.' },
+                    { day: 'Dia 7-8', title: 'Retorno', desc: 'Traslado de volta a Malé e conexão internacional.' }
+                ]
+            }
+        ];
+
+        // Estado inicial dos filtros (com Brasil pré-selecionado)
+        let currentStyle = 'todos';
+        let currentRegion = 'Brasil';
+        let currentSort = 'destaque';
+
+        // Formatador de Moeda BRL
+        const formatBRL = (value) => {
+            return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+        };
+
+        // Gera ícone SVG temático para cada pacote
+        function getStyleSvg(style) {
+            if (style === 'Praia') {
+                return `<svg class="w-10 h-10 text-white/90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+            }
+            if (style === 'Aventura') {
+                return `<svg class="w-10 h-10 text-white/90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>`;
+            }
+            if (style === 'Cultura') {
+                return `<svg class="w-10 h-10 text-white/90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>`;
+            }
+            return `<svg class="w-10 h-10 text-white/90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+        }
+
+        // Renderiza os cards de pacotes filtrados
+        function renderPackages() {
+            const grid = document.getElementById('packages-grid');
+            const emptyState = document.getElementById('empty-state');
+            const resultsCount = document.getElementById('results-count');
+            const resetBtn = document.getElementById('reset-filters-btn');
+
+            let filtered = travelPackages.filter(pkg => {
+                const matchStyle = currentStyle === 'todos' || pkg.style === currentStyle;
+                const matchRegion = currentRegion === 'todos' || pkg.region === currentRegion;
+                return matchStyle && matchRegion;
+            });
+
+            if (currentSort === 'menor-preco') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'maior-preco') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (currentSort === 'duracao') {
+                filtered.sort((a, b) => b.days - a.days);
+            }
+
+            // Mostra ou oculta botão de limpar filtros
+            if (currentStyle !== 'todos' || currentRegion !== 'todos') {
+                resetBtn.classList.remove('hidden');
+            } else {
+                resetBtn.classList.add('hidden');
+            }
+
+            resultsCount.textContent = `Exibindo ${filtered.length} ${filtered.length === 1 ? 'pacote disponível' : 'pacotes disponíveis'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(pkg => `
+                <article class="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <!-- Cabeçalho Ilustrado Vetorial do Card -->
+                        <div class="relative h-44 bg-gradient-to-br ${pkg.gradient} p-6 flex flex-col justify-between overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 w-36 h-36 rounded-full bg-white/10 pointer-events-none group-hover:scale-110 transition-transform"></div>
+                            <div class="flex items-center justify-between relative z-10">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/20 backdrop-blur-sm text-white">
+                                    ${pkg.style}
+                                </span>
+                                <span class="text-xs font-semibold text-white/90 bg-black/20 px-2.5 py-1 rounded-lg">
+                                    ${pkg.region}
+                                </span>
+                            </div>
+
+                            <div class="flex items-end justify-between relative z-10">
+                                <div>
+                                    <span class="text-xs text-white/80 font-medium block">${pkg.durationText}</span>
+                                    <h3 class="font-display font-extrabold text-xl text-white leading-snug mt-0.5">
+                                        ${pkg.title}
+                                    </h3>
+                                </div>
+                                <div class="opacity-85 group-hover:scale-110 transition-transform">
+                                    ${getStyleSvg(pkg.style)}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Corpo do Card -->
+                        <div class="p-6">
+                            <div class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-md mb-3">
+                                <span>Nível: ${pkg.level}</span>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                                ${pkg.summary}
+                            </p>
+
+                            <!-- Lista Resumida de Inclusões -->
+                            <ul class="space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-4">
+                                ${pkg.inclusions.slice(0, 3).map(item => `
+                                    <li class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span>${item}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Rodapé do Card com Preço e Ações -->
+                    <div class="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Por pessoa a partir de</span>
+                            <span class="font-display font-extrabold text-2xl text-slate-900">${formatBRL(pkg.price)}</span>
+                        </div>
+
+                        <button type="button" onclick="openItineraryModal('${pkg.id}')" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-brand-800 text-white text-xs font-bold transition-colors cursor-pointer">
+                            Ver Roteiro
+                        </button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Atualiza botões visuais de filtro de estilo
+        function syncFilterUI() {
+            document.querySelectorAll('.filter-pill').forEach(btn => {
+                if (btn.dataset.style === currentStyle) {
+                    btn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+                    btn.classList.add('bg-brand-900', 'text-white');
+                } else {
+                    btn.classList.remove('bg-brand-900', 'text-white');
+                    btn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+                }
+            });
+            document.getElementById('catalog-continent-filter').value = currentRegion;
+        }
+
+        // ================= MODAL DE ROTEIRO DIA A DIA =================
+        let activeModalPackageId = null;
+
+        function openItineraryModal(packageId) {
+            const pkg = travelPackages.find(p => p.id === packageId);
+            if (!pkg) return;
+
+            activeModalPackageId = pkg.id;
+
+            document.getElementById('modal-badge-style').textContent = pkg.style;
+            document.getElementById('modal-badge-region').textContent = `${pkg.region} • ${pkg.level}`;
+            document.getElementById('modal-title').textContent = pkg.title;
+            document.getElementById('modal-subtitle').textContent = `${pkg.durationText} • Pacote Completo`;
+            document.getElementById('modal-price').textContent = formatBRL(pkg.price);
+
+            const banner = document.getElementById('modal-header-banner');
+            banner.className = `p-6 sm:p-7 bg-gradient-to-r ${pkg.gradient} text-white flex items-start justify-between gap-4`;
+
+            document.getElementById('modal-inclusions').innerHTML = pkg.inclusions.map(inc => `
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold">
+                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    ${inc}
+                </span>
+            `).join('');
+
+            document.getElementById('modal-days-list').innerHTML = pkg.itinerary.map(step => `
+                <div class="relative">
+                    <span class="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-brand-600 ring-4 ring-white"></span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-700">${step.day}</span>
+                    <h5 class="font-display font-bold text-base text-slate-900 mt-0.5">${step.title}</h5>
+                    <p class="text-sm text-slate-600 mt-1 leading-relaxed">${step.desc}</p>
+                </div>
+            `).join('');
+
+            const modal = document.getElementById('itinerary-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeItineraryModal() {
+            const modal = document.getElementById('itinerary-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // ================= SIMULADOR DE ORÇAMENTO =================
+        function initSimulator() {
+            const simSelect = document.getElementById('sim-destination');
+            const formDestSelect = document.getElementById('form-destination');
+            const optionsHtml = travelPackages.map(pkg => `
+                <option value="${pkg.id}">${pkg.title} (${pkg.durationText}) — Base ${formatBRL(pkg.price)}/pessoa</option>
+            `).join('');
+            const simpleOptionsHtml = travelPackages.map(pkg => `
+                <option value="${pkg.title}">${pkg.title} (${pkg.durationText})</option>
+            `).join('');
+
+            simSelect.innerHTML = optionsHtml;
+            if (formDestSelect) {
+                formDestSelect.innerHTML = simpleOptionsHtml;
+            }
+
+            updateSimulation();
+        }
+
+        function updateSimulation() {
+            const selectedId = document.getElementById('sim-destination').value;
+            const pkg = travelPackages.find(p => p.id === selectedId) || travelPackages[0];
+            const travelers = parseInt(document.getElementById('sim-travelers').value, 10);
+
+            // Categoria de hotel selecionada
+            const hotelRadio = document.querySelector('input[name="hotelTier"]:checked');
+            const hotelMultiplier = parseFloat(hotelRadio ? hotelRadio.value : '1.0');
+            let hotelLabel = 'Hotel 4★';
+            if (hotelMultiplier === 1.28) hotelLabel = 'Boutique 5★';
+            if (hotelMultiplier === 1.60) hotelLabel = 'Resort All-Inclusive';
+
+            // Atualiza estilo visual dos cards de hotel
+            document.querySelectorAll('.hotel-radio-card').forEach(card => {
+                const input = card.querySelector('input');
+                if (input.checked) {
+                    card.classList.remove('border-slate-200');
+                    card.classList.add('border-brand-600', 'bg-brand-50/30', 'shadow-sm');
+                } else {
+                    card.classList.remove('border-brand-600', 'bg-brand-50/30', 'shadow-sm');
+                    card.classList.add('border-slate-200');
+                }
+            });
+
+            // Soma extras por pessoa
+            let extrasPerPerson = 0;
+            document.querySelectorAll('.sim-extra:checked').forEach(cb => {
+                extrasPerPerson += parseFloat(cb.dataset.price);
+            });
+
+            const baseTotal = pkg.price * travelers;
+            const hotelAdjustedTotal = Math.round(baseTotal * hotelMultiplier);
+            const hotelDiff = hotelAdjustedTotal - baseTotal;
+            const extrasTotal = extrasPerPerson * travelers;
+            const grandTotal = hotelAdjustedTotal + extrasTotal;
+            const perPerson = Math.round(grandTotal / travelers);
+
+            // Atualiza rótulos
+            document.getElementById('sim-travelers-label').textContent = `${travelers} ${travelers === 1 ? 'Viajante' : 'Viajantes'}`;
+            document.getElementById('summary-dest-name').textContent = pkg.title;
+            document.getElementById('summary-duration').textContent = pkg.durationText;
+            document.getElementById('summary-travelers-count').textContent = travelers;
+            document.getElementById('summary-base-total').textContent = formatBRL(baseTotal);
+            document.getElementById('summary-hotel-label').textContent = hotelLabel;
+            document.getElementById('summary-hotel-diff').textContent = hotelDiff > 0 ? `+ ${formatBRL(hotelDiff)}` : 'Incluso';
+            document.getElementById('summary-extras-total').textContent = formatBRL(extrasTotal);
+            document.getElementById('summary-grand-total').textContent = formatBRL(grandTotal);
+            document.getElementById('summary-per-person').textContent = formatBRL(perPerson);
+        }
+
+        // Notificação Toast elegante
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3200);
+        }
+
+        // ================= EVENT LISTENERS =================
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPackages();
+            initSimulator();
+
+            // Atualização em tempo real do Formulário de Preenchimento do Roteiro
+            const profileForm = document.getElementById('traveler-profile-form');
+            const nameInput = document.getElementById('traveler-name');
+            const originInput = document.getElementById('departure-city');
+            const formDestSelect = document.getElementById('form-destination');
+            const dateInput = document.getElementById('departure-date');
+            const paxSelect = document.getElementById('form-passengers');
+            const notesInput = document.getElementById('travel-notes');
+
+            function updateTravelerTicketPreview() {
+                document.getElementById('preview-name').textContent = nameInput.value.trim() || 'Seu Nome Aqui';
+                document.getElementById('preview-origin').textContent = originInput.value.trim() || 'A definir';
+                document.getElementById('preview-dest').textContent = formDestSelect.value || 'Fernando de Noronha';
+                document.getElementById('preview-pax').textContent = paxSelect.value;
+
+                if (dateInput.value) {
+                    const [year, month, day] = dateInput.value.split('-');
+                    document.getElementById('preview-date').textContent = `${day}/${month}/${year}`;
+                } else {
+                    document.getElementById('preview-date').textContent = 'A escolher';
+                }
+
+                const checkedTags = Array.from(document.querySelectorAll('.pref-tag:checked')).map(cb => cb.value);
+                const tagsContainer = document.getElementById('preview-tags');
+                if (checkedTags.length > 0) {
+                    tagsContainer.innerHTML = checkedTags.map(tag => `
+                        <span class="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-800 border border-brand-100 text-xs font-medium">${tag}</span>
+                    `).join('');
+                } else {
+                    tagsContainer.innerHTML = `<span class="text-xs text-slate-400">Nenhuma preferência marcada</span>`;
+                }
+
+                const notesText = notesInput.value.trim();
+                const notesBox = document.getElementById('preview-notes-box');
+                if (notesText) {
+                    notesBox.classList.remove('hidden');
+                    document.getElementById('preview-notes').textContent = notesText;
+                } else {
+                    notesBox.classList.add('hidden');
+                }
+            }
+
+            [nameInput, originInput, notesInput].forEach(el => el.addEventListener('input', updateTravelerTicketPreview));
+            [formDestSelect, dateInput, paxSelect].forEach(el => el.addEventListener('change', updateTravelerTicketPreview));
+
+            document.querySelectorAll('.pref-tag').forEach(cb => {
+                cb.addEventListener('change', (e) => {
+                    const pill = e.target.nextElementSibling;
+                    if (e.target.checked) {
+                        pill.classList.remove('border-slate-300', 'bg-white', 'text-slate-600');
+                        pill.classList.add('border-brand-600', 'bg-brand-50', 'text-brand-800');
+                    } else {
+                        pill.classList.remove('border-brand-600', 'bg-brand-50', 'text-brand-800');
+                        pill.classList.add('border-slate-300', 'bg-white', 'text-slate-600');
+                    }
+                    updateTravelerTicketPreview();
+                });
+            });
+
+            profileForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                updateTravelerTicketPreview();
+                const badge = document.getElementById('ticket-status-badge');
+                badge.textContent = 'Roteiro Preenchido ✓';
+                badge.classList.remove('bg-amber-100', 'text-amber-800');
+                badge.classList.add('bg-emerald-100', 'text-emerald-800');
+                showToast('Ficha do seu roteiro preenchida com sucesso!');
+            });
+
+            document.getElementById('copy-ticket-btn').addEventListener('click', () => {
+                const pName = document.getElementById('preview-name').textContent;
+                const pOrigin = document.getElementById('preview-origin').textContent;
+                const pDest = document.getElementById('preview-dest').textContent;
+                const pDate = document.getElementById('preview-date').textContent;
+                const pPax = document.getElementById('preview-pax').textContent;
+                const pNotes = notesInput.value.trim();
+
+                const ticketText = `Ficha de Roteiro — Horizonte Viagens\n• Viajante: ${pName}\n• Origem: ${pOrigin}\n• Destino: ${pDest}\n• Data Prevista: ${pDate}\n• Passageiros: ${pPax}${pNotes ? `\n• Observações: ${pNotes}` : ''}`;
+
+                const tempArea = document.createElement('textarea');
+                tempArea.value = ticketText;
+                document.body.appendChild(tempArea);
+                tempArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('Ficha do roteiro copiada com sucesso!');
+                } catch (err) {
+                    showToast('Ficha atualizada!');
+                }
+                document.body.removeChild(tempArea);
+            });
+
+            // Menu Mobile
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Busca Rápida na Seção Hero
+            document.getElementById('hero-search-btn').addEventListener('click', () => {
+                currentStyle = document.getElementById('hero-style-select').value;
+                currentRegion = document.getElementById('hero-continent-select').value;
+                syncFilterUI();
+                renderPackages();
+                document.getElementById('pacotes').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Cards de Categoria Rápida
+            document.querySelectorAll('.quick-cat-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    currentStyle = card.dataset.quickFilter;
+                    currentRegion = 'todos';
+                    syncFilterUI();
+                    renderPackages();
+                    document.getElementById('pacotes').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Pills de Filtro de Estilo no Catálogo
+            document.querySelectorAll('.filter-pill').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentStyle = btn.dataset.style;
+                    syncFilterUI();
+                    renderPackages();
+                });
+            });
+
+            // Select de Região e Ordenação no Catálogo
+            document.getElementById('catalog-continent-filter').addEventListener('change', (e) => {
+                currentRegion = e.target.value;
+                renderPackages();
+            });
+
+            document.getElementById('catalog-sort').addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                renderPackages();
+            });
+
+            // Reset de Filtros
+            const resetAllFilters = () => {
+                currentStyle = 'todos';
+                currentRegion = 'todos';
+                currentSort = 'destaque';
+                document.getElementById('catalog-sort').value = 'destaque';
+                syncFilterUI();
+                renderPackages();
+            };
+            document.getElementById('reset-filters-btn').addEventListener('click', resetAllFilters);
+            document.getElementById('empty-reset-btn').addEventListener('click', resetAllFilters);
+
+            // Eventos do Modal
+            document.getElementById('close-modal-btn').addEventListener('click', closeItineraryModal);
+            document.getElementById('itinerary-modal').addEventListener('click', (e) => {
+                if (e.target.id === 'itinerary-modal') closeItineraryModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeItineraryModal();
+            });
+
+            // Enviar destino do Modal direto para o Simulador
+            document.getElementById('modal-simulate-btn').addEventListener('click', () => {
+                if (activeModalPackageId) {
+                    document.getElementById('sim-destination').value = activeModalPackageId;
+                    updateSimulation();
+                }
+                closeItineraryModal();
+                document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Controles do Simulador
+            document.getElementById('sim-destination').addEventListener('change', updateSimulation);
+            const travelersInput = document.getElementById('sim-travelers');
+            travelersInput.addEventListener('input', updateSimulation);
+
+            document.getElementById('dec-travelers').addEventListener('click', () => {
+                if (parseInt(travelersInput.value, 10) > 1) {
+                    travelersInput.value = parseInt(travelersInput.value, 10) - 1;
+                    updateSimulation();
+                }
+            });
+
+            document.getElementById('inc-travelers').addEventListener('click', () => {
+                if (parseInt(travelersInput.value, 10) < 8) {
+                    travelersInput.value = parseInt(travelersInput.value, 10) + 1;
+                    updateSimulation();
+                }
+            });
+
+            document.querySelectorAll('input[name="hotelTier"]').forEach(radio => {
+                radio.addEventListener('change', updateSimulation);
+            });
+
+            document.querySelectorAll('.sim-extra').forEach(cb => {
+                cb.addEventListener('change', updateSimulation);
+            });
+
+            // Copiar Resumo da Simulação usando document.execCommand('copy')
+            document.getElementById('copy-quote-btn').addEventListener('click', () => {
+                const dest = document.getElementById('summary-dest-name').textContent;
+                const dur = document.getElementById('summary-duration').textContent;
+                const trav = document.getElementById('summary-travelers-count').textContent;
+                const hotel = document.getElementById('summary-hotel-label').textContent;
+                const total = document.getElementById('summary-grand-total').textContent;
+                const perPerson = document.getElementById('summary-per-person').textContent;
+
+                const summaryText = `Simulação Horizonte Viagens:\n• Destino: ${dest} (${dur})\n• Viajantes: ${trav}\n• Hospedagem: ${hotel}\n• Investimento Total Estimado: ${total} (${perPerson} por pessoa)`;
+
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = summaryText;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('Resumo da simulação copiado para a área de transferência!');
+                } catch (err) {
+                    showToast('Simulação atualizada com sucesso!');
+                }
+                document.body.removeChild(tempTextArea);
+            });
+        });
+    </script>
+</body>
+</html>
+```
